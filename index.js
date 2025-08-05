@@ -89,6 +89,7 @@ app.post('/send-email', async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_TO,
+      replyTo: contactEmail,
       subject: 'Contact Form',
       html: `
         <div style="background-color: #f4f6f8; padding: 40px 0; font-family: 'Segoe UI', sans-serif;">
@@ -139,4 +140,5 @@ app.post('/send-email', async (req, res) => {
 
 app.listen(PORT, () => {
   logger.info(`Server is running on http://localhost:${PORT}`);
+
 });
